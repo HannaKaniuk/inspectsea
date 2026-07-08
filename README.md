@@ -1,6 +1,9 @@
 # InspectSea Survey
 
-Багатомовний (UA/EN) сайт сюрвеєрської компанії. Stack: Vite + React 19 + TypeScript, React Router, Tailwind CSS v4, i18next. Форма заявки працює через Vercel serverless-функцію (`/api/contact`) + Resend.
+Багатомовний (UA/EN) сайт сюрвеєрської компанії.
+
+**Stack:** Vite + React 19 + TypeScript, React Router, Tailwind CSS v4, i18next.  
+**Форма:** Web3Forms (client-side API) → `info@inspectsea.com.ua`
 
 ## Розробка
 
@@ -14,34 +17,40 @@ yarn lint
 ## Структура
 
 ```
-api/contact.ts          # Vercel-функція для форми заявки (Resend)
 src/
-  i18n/                 # i18next + локалі ua.ts / en.ts
-  data/services.ts      # перелік послуг (slug + іконка)
-  components/           # Header, Footer, Logo, ServiceCard, ...
-  pages/                # Home, Services, ServiceDetail, About, Locations, Contact
+  lib/submitContact.ts  # Web3Forms submit helper
+  data/site.ts          # CONTACT_EMAIL тощо
+  i18n/locales/         # ua.ts / en.ts
+  components/
+  pages/
+public/
+  images/logo.jpg
+  favicon.svg
+  favicon-32.png
+  apple-touch-icon.png
+scripts/setup-email.mjs # опційно: env + Vercel deploy
 ```
 
-Контент послуг, офісів тощо живе в `src/i18n/locales/{ua,en}.ts` — редагуй там.
+## Email (contact form)
 
-## Деплой на Vercel
+1. Створи Access Key на [web3forms.com](https://web3forms.com) для `info@inspectsea.com.ua`
+2. Додай env (локально в `.env.local`, на Vercel — production/preview/development):
 
-1. Імпортуй репозиторій у Vercel (пресет Vite визначиться автоматично).
-2. Додай Environment Variables:
+```bash
+VITE_WEB3FORMS_ACCESS_KEY=your-access-key
+```
 
-| Змінна            | Опис                                                        |
-| ----------------- | ----------------------------------------------------------- |
-| `RESEND_API_KEY`  | ключ із https://resend.com/api-keys                         |
-| `CONTACT_TO`      | пошта, куди приходять заявки (напр. `info@inspectsea.com`)  |
-| `CONTACT_FROM`    | верифікований відправник (для тестів `onboarding@resend.dev`) |
+3. Або одним скриптом:
 
-3. Deploy. SPA-роутинг і `/api/contact` налаштовані у `vercel.json`.
+```bash
+WEB3FORMS_ACCESS_KEY=xxxx yarn setup:email
+```
 
-> Локально форма шле запит на `/api/contact` — щоб перевірити її повністю, запусти `vercel dev` (потрібен Vercel CLI) або задеплой у прев'ю.
+Access Key у Web3Forms публічний by design (ідентифікатор форми). На free-плані відправка йде з браузера.
 
 ## Атрибуція зображень
 
-Фото в `public/images/` — під ліцензіями Creative Commons (атрибуція обовʼязкова):
+Фото в `public/images/` — Creative Commons (атрибуція обовʼязкова):
 
 | Файл                     | Автор / джерело                                                   | Ліцензія    |
 | ------------------------ | ---------------------------------------------------------------- | ----------- |
@@ -51,8 +60,6 @@ src/
 | `container-ship.jpg`     | "Container ship at Thamesport" — suvodeb (Flickr)               | CC BY 2.0   |
 | `bulk-carrier.jpg`       | "Bulk carrier Sea Etiquette, Kwinana Bulk Terminal" — Calistemon (Wikimedia Commons) | CC BY-SA 4.0 |
 
-> Якщо хочеш власні фото — просто заміни файли в `public/images/` (імена ті самі) і прибери цю таблицю.
-
 ## Брендинг
 
-Кольори з логотипу INSPECTSEA задані як Tailwind-токени у `src/index.css` (`@theme`): `navy`, `teal`, `green` + утиліти `brand-gradient` / `text-brand-gradient`.
+Кольори з логотипу задані як Tailwind-токени у `src/index.css` (`@theme`): `navy`, `teal`, `green` + утиліти `brand-gradient` / `text-brand-gradient`.

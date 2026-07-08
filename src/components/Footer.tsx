@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Logo } from './Logo'
 import { services, documents } from '../data/services'
+import { CONTACT_EMAIL } from '../data/site'
 
 export function Footer() {
   const { t } = useTranslation()
@@ -82,8 +83,8 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a href="mailto:info@inspectsea.com" className="transition-colors hover:text-teal-400">
-                info@inspectsea.com
+              <a href={`mailto:${CONTACT_EMAIL}`} className="transition-colors hover:text-teal-400">
+                {CONTACT_EMAIL}
               </a>
             </li>
           </ul>

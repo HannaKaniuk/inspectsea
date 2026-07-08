@@ -1,13 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="InspectSea">
+  <rect width="64" height="64" rx="12" fill="#0E1B2B"/>
   <defs>
-    <linearGradient id="g" x1="12" y1="52" x2="52" y2="8" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0b3b5e" />
-      <stop offset="0.55" stop-color="#17a6c9" />
-      <stop offset="1" stop-color="#3db54a" />
+    <linearGradient id="g" x1="14" y1="46" x2="50" y2="10" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00DBFF"/>
+      <stop offset="1" stop-color="#26FF75"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="14" fill="#05243a" />
-  <path d="M34 10C40 24 42 36 40 47L28 47C28 34 30 22 34 10Z" fill="url(#g)" />
-  <path d="M31 18C28 30 26 38 25 47L16 47C20 36 25 26 31 18Z" fill="#17a6c9" />
-  <path d="M12 52C17 54 21 54 26 52C31 50 35 50 40 52C45 54 49 54 54 52" stroke="url(#g)" stroke-width="3.5" stroke-linecap="round" fill="none" />
+  <path d="M18 46 L26 14 C30 22 32 32 31 46 Z" fill="url(#g)"/>
+  <path d="M30 46 L38 12 C44 20 46 30 44 46 Z" fill="url(#g)" opacity="0.9"/>
+  <path d="M14 48C20 51 24 51 30 48C36 45 40 45 46 48C50 50 52 50 54 48" stroke="url(#g)" stroke-width="3" stroke-linecap="round" fill="none"/>
 </svg>

@@ -1,33 +1,44 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { PageHero } from '../components/PageHero'
+import { CONTACT_EMAIL } from '../data/site'
 import { services } from '../data/services'
+import { submitContact } from '../lib/submitContact'
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
 
 export function Contact() {
   const { t } = useTranslation()
   const [status, setStatus] = useState<Status>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const form = e.currentTarget
     const data = Object.fromEntries(new FormData(form).entries())
 
-    // honeypot: bots fill hidden field
-    if (data.website) return
-
+    setErrorMessage('')
     setStatus('sending')
+
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+      await submitContact({
+        name: String(data.name ?? ''),
+        email: String(data.email ?? ''),
+        phone: String(data.phone ?? ''),
+        company: String(data.company ?? ''),
+        service: String(data.service ?? ''),
+        message: String(data.message ?? ''),
+        website: String(data.website ?? ''),
       })
-      if (!res.ok) throw new Error('Request failed')
       setStatus('success')
       form.reset()
-    } catch {
+    } catch (error) {
+      const code = error instanceof Error ? error.message : ''
+      if (code === 'TIMEOUT') {
+        setErrorMessage(t('contact.timeout', { email: CONTACT_EMAIL }))
+      } else {
+        setErrorMessage(t('contact.error', { email: CONTACT_EMAIL }))
+      }
       setStatus('error')
     }
   }
@@ -46,8 +57,16 @@ export function Contact() {
               <p className="font-medium text-navy-900">{t('contact.success')}</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="grid gap-5 sm:grid-cols-2">
-              <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+            <form onSubmit={handleSubmit} className="grid gap-5 sm:grid-cols-2" noValidate>
+              {/* honeypot */}
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
 
               <label className="block">
                 <span className="mb-1.5 block text-sm font-medium">{t('contact.name')} *</span>
@@ -91,9 +110,7 @@ export function Contact() {
                 >
                   {status === 'sending' ? t('contact.sending') : t('contact.submit')}
                 </button>
-                {status === 'error' && (
-                  <p className="mt-3 text-sm text-red-600">{t('contact.error')}</p>
-                )}
+                {status === 'error' && <p className="mt-3 text-sm text-red-600">{errorMessage}</p>}
               </div>
             </form>
           )}
@@ -118,8 +135,8 @@ export function Contact() {
                   {t('contact.email')}
                 </dt>
                 <dd className="mt-0.5">
-                  <a href="mailto:info@inspectsea.com" className="hover:text-teal-500">
-                    info@inspectsea.com
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-teal-500">
+                    {CONTACT_EMAIL}
                   </a>
                 </dd>
               </div>
