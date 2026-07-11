@@ -6,9 +6,9 @@ interface LogoProps {
 export function Logo({ className, variant = 'default' }: LogoProps) {
   return (
     <img
-      src="/images/logo.jpg"
+      src="/images/logo.png"
       alt="InspectSea Survey"
-      className={`h-11 w-auto object-contain ${variant === 'light' ? 'rounded-md bg-white px-2 py-1' : ''} ${className ?? ''}`}
+      className={`h-12 w-auto object-contain ${variant === 'light' ? 'rounded-md' : ''} ${className ?? ''}`}
     />
   )
 }
