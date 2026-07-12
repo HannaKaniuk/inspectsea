@@ -13,7 +13,8 @@ export function About() {
     <>
       <PageHero title={t('about.title')} subtitle={t('about.intro')} />
 
-      <section className="container-page grid items-stretch gap-8 py-16 lg:grid-cols-2">
+      <section className="section-light py-16">
+        <div className="container-page grid items-stretch gap-8 lg:grid-cols-2">
         <div className="overflow-hidden rounded-2xl shadow-card">
           <img
             src="/images/bulk-carrier.jpg"
@@ -23,7 +24,7 @@ export function About() {
           />
         </div>
         <div className="flex flex-col gap-6">
-          <div className="rounded-2xl border border-navy-900/10 bg-white p-8 shadow-card">
+          <div className="card-surface p-8">
             <h2 className="text-2xl font-bold">{t('about.missionTitle')}</h2>
             <p className="mt-4 leading-relaxed text-navy-900/80">{t('about.mission')}</p>
           </div>
@@ -38,23 +39,28 @@ export function About() {
             </ul>
           </div>
         </div>
+        </div>
       </section>
 
-      <section className="container-page pb-16">
+      <section className="section-alt py-16">
+        <div className="container-page">
         <SectionHeading title={t('about.valuesTitle')} center />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((v) => (
-            <div key={v.title} className="rounded-2xl border border-navy-900/10 bg-white p-6 shadow-card">
-              <span className="brand-gradient mb-4 block h-1 w-10 rounded-full" />
+            <div
+              key={v.title}
+              className="card-surface group p-6 transition-all hover:-translate-y-0.5 hover:border-teal-500/35 hover:shadow-card-hover"
+            >
+              <span className="accent-bar mb-4 block h-1 w-10 rounded-full transition-all group-hover:w-16" />
               <h3 className="text-lg font-bold">{v.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">{v.text}</p>
             </div>
           ))}
         </div>
+        </div>
       </section>
 
-      {/* Documents */}
-      <section className="bg-navy-950/[0.03] py-16">
+      <section className="section-light py-16">
         <div className="container-page">
           <SectionHeading title={t('about.docsTitle')} subtitle={t('about.docsSubtitle')} center />
           <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -64,7 +70,7 @@ export function About() {
                 href={doc.file}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col rounded-2xl border border-navy-900/10 bg-white p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal-500/40"
+                className="card-surface group flex flex-col p-6 transition-all hover:-translate-y-1 hover:border-teal-500/35 hover:shadow-card-hover"
               >
                 <span className="inline-flex w-fit rounded-md bg-teal-500/10 px-2 py-1 text-xs font-bold uppercase tracking-wider text-teal-500">
                   PDF

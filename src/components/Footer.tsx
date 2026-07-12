@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Logo } from './Logo'
 import { services, documents } from '../data/services'
-import { CONTACT_EMAIL } from '../data/site'
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_DISPLAY } from '../data/site'
 
 export function Footer() {
   const { t } = useTranslation()
@@ -10,6 +10,7 @@ export function Footer() {
 
   return (
     <footer className="mt-24 bg-navy-950 text-white/70">
+      <div className="accent-bar h-1 w-full" />
       <div className="container-page grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
         <div className="max-w-xs">
           <Logo variant="light" />
@@ -78,8 +79,8 @@ export function Footer() {
           </h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="tel:+380487000000" className="transition-colors hover:text-teal-400">
-                +38 048 700 00 00
+              <a href={`tel:${CONTACT_PHONE}`} className="transition-colors hover:text-teal-400">
+                {CONTACT_PHONE_DISPLAY}
               </a>
             </li>
             <li>

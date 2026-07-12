@@ -46,7 +46,11 @@ export function ServiceDetail() {
         </div>
 
         <aside className="h-fit rounded-2xl border border-navy-900/10 bg-white p-7 shadow-card">
-          <h3 className="text-lg font-bold">{t('cta.title')}</h3>
+          <h3 className="text-lg font-bold">
+            {t('cta.titleBefore')}
+            <span className="text-flame-500">{t('cta.titleAccent')}</span>
+            {t('cta.titleAfter')}
+          </h3>
           <p className="mt-2 text-sm text-muted">{t('cta.subtitle')}</p>
           <Link
             to="/contact"
@@ -64,9 +68,9 @@ export function ServiceDetail() {
             <Link
               key={s.slug}
               to={`/services/${s.slug}`}
-              className="group rounded-2xl border border-navy-900/10 bg-white p-6 shadow-card transition-all hover:-translate-y-1"
+              className="group rounded-2xl border border-navy-900/10 bg-white p-6 shadow-card transition-all hover:-translate-y-1 hover:border-teal-500/40"
             >
-              <span className="brand-gradient mb-3 block h-1 w-8 rounded-full" />
+              <span className="accent-bar mb-3 block h-1 w-8 rounded-full transition-all group-hover:w-12" />
               <span className="font-semibold">{t(`services.${s.slug}.title`)}</span>
             </Link>
           ))}

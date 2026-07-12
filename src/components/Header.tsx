@@ -18,11 +18,12 @@ export function Header() {
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     `text-sm font-medium transition-colors hover:text-teal-500 ${
-      isActive ? 'text-teal-500' : 'text-navy-900/80'
+      isActive ? 'font-semibold text-teal-500' : 'text-navy-900/80'
     }`
 
   return (
-    <header className="sticky top-0 z-50 border-b border-navy-900/10 bg-white/85 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-navy-900/10 bg-white/95 backdrop-blur">
+      <div className="accent-bar accent-bar-shimmer h-0.5 w-full" />
       <div className="container-page flex h-16 items-center justify-between">
         <Link to="/" onClick={() => setOpen(false)} aria-label="InspectSea Survey">
           <Logo />

@@ -22,18 +22,18 @@ export const en: Translation = {
   },
   hero: {
     badge: 'Maritime inspection & survey',
-    title: 'Secure and professional inspections in maritime and logistics',
+    titleBefore: 'Secure and professional ',
+    titleAccent: 'inspections',
+    titleAfter: ' in maritime and logistics',
     subtitle:
       'INSPECTSEA SURVEY is a specialized inspection and surveying company in the maritime sector. We provide inspection services in compliance with international standards, keeping our clients’ operations safer and more efficient.',
     ctaPrimary: 'Book an inspection',
     ctaSecondary: 'Our services',
-    stat1: 'successful inspections',
-    stat2: 'years in maritime industry',
-    stat3: 'service availability',
-    stat4: 'certified surveyors',
   },
   valueProps: {
-    title: 'What sets us apart',
+    titleBefore: 'What ',
+    titleAccent: 'sets us apart',
+    titleAfter: '',
     subtitle: 'Why companies trust INSPECTSEA SURVEY with their cargo and vessels.',
     items: [
       {
@@ -81,7 +81,9 @@ export const en: Translation = {
     },
   },
   cta: {
-    title: 'Need an independent inspection?',
+    titleBefore: 'Need an ',
+    titleAccent: 'independent inspection',
+    titleAfter: '?',
     subtitle: 'Tell us about your task and timing — we will send a quote within a business day.',
     button: 'Get a quote',
   },
@@ -195,32 +197,35 @@ export const en: Translation = {
   },
   locations: {
     title: 'Locations',
-    subtitle: 'We are present in the main Black Sea and Danube ports.',
-    headOffice: 'Head office',
+    subtitle: 'We provide inspection and surveying services across Ukraine.',
+    coverage: {
+      badge: 'Nationwide',
+      title: 'We work in any region',
+      text: 'Our surveyors travel to ports, terminals, warehouses, and loading sites throughout Ukraine — from the Black Sea to the Danube and inland logistics hubs.',
+      items: [
+        'Ports and marine terminals',
+        'Rail and road warehouses',
+        'Grain elevators and storage complexes',
+        'Industrial and logistics facilities',
+        'Cargo loading and discharge sites',
+        'Buyer or seller premises by arrangement',
+      ],
+    },
+    sampling: {
+      title: 'Sampling & quality control',
+      text: 'If you plan to purchase cargo and need to verify quality before the deal — we will visit the warehouse or terminal, inspect the lot, and collect samples for laboratory analysis.',
+      items: [
+        'Inspector visit to buyer/seller warehouse or terminal',
+        'Visual inspection and documentation of lot condition',
+        'Sampling according to agreed methodology',
+        'Sample preparation for accredited laboratory testing',
+        'Report with inspection findings and recommendations',
+      ],
+    },
+    contactTitle: 'Contact us',
+    contactText: 'Describe the location, cargo type, and task — we will prepare a quote and schedule a visit at a convenient time.',
+    mapTitle: 'Coverage map — Ukraine',
     addressLabel: 'Address',
-    offices: [
-      {
-        city: 'Odesa',
-        role: 'Head office',
-        address: '6 Prymorska St., Odesa, 65014',
-        phone: '+38 048 700 00 00',
-        email: 'info@inspectsea.com.ua',
-      },
-      {
-        city: 'Chornomorsk',
-        role: 'Port office',
-        address: '2 Pratsi St., Chornomorsk, 68001',
-        phone: '+38 048 700 00 01',
-        email: 'info@inspectsea.com.ua',
-      },
-      {
-        city: 'Izmail',
-        role: 'Danube terminal',
-        address: '8 Portova St., Izmail, 68600',
-        phone: '+38 048 700 00 02',
-        email: 'info@inspectsea.com.ua',
-      },
-    ],
   },
   contact: {
     title: 'Contact us',

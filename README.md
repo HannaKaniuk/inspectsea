@@ -55,7 +55,7 @@ Access Key у Web3Forms публічний by design (ідентифікатор
 | Файл                     | Автор / джерело                                                   | Ліцензія    |
 | ------------------------ | ---------------------------------------------------------------- | ----------- |
 | `hero.jpg`               | "Container Ship" — NOAA's National Ocean Service (Flickr)        | CC BY 2.0   |
-| `port-cranes.jpg`        | "ANL WANGARATTA" — dok1 (Flickr)                                 | CC BY 2.0   |
+| `port-cranes.jpg`        | "Container port cranes southampton" — Cmglee (Wikimedia Commons) | CC BY-SA 4.0 |
 | `container-terminal.jpg` | "Port of Oakland Crane Horses" — Wilson Hui (Flickr)             | CC BY 2.0   |
 | `container-ship.jpg`     | "Container ship at Thamesport" — suvodeb (Flickr)               | CC BY 2.0   |
 | `bulk-carrier.jpg`       | "Bulk carrier Sea Etiquette, Kwinana Bulk Terminal" — Calistemon (Wikimedia Commons) | CC BY-SA 4.0 |

@@ -8,11 +8,13 @@ export function ServiceCard({ service }: { service: ServiceMeta }) {
   return (
     <Link
       to={`/services/${service.slug}`}
-      className="group flex flex-col rounded-2xl border border-navy-900/10 bg-white p-7 shadow-card transition-all hover:-translate-y-1 hover:border-teal-500/40"
+      className="card-surface group relative flex h-full min-h-[260px] flex-col overflow-hidden p-7 transition-all hover:-translate-y-1 hover:border-teal-500/35 hover:shadow-card-hover"
     >
-      <span className="brand-gradient mb-4 h-1 w-10 rounded-full" />
-      <h3 className="text-lg font-bold">{t(`services.${service.slug}.title`)}</h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+      <div className="accent-bar absolute inset-x-0 top-0 h-1 opacity-80 transition-opacity group-hover:opacity-100" />
+      <h3 className="mt-1 line-clamp-2 min-h-[3.5rem] text-lg font-bold leading-snug">
+        {t(`services.${service.slug}.title`)}
+      </h3>
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted line-clamp-4">
         {t(`services.${service.slug}.short`)}
       </p>
       <span className="mt-5 text-sm font-semibold text-teal-500 transition-colors group-hover:text-navy-900">
